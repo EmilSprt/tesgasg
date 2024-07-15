@@ -20,7 +20,7 @@ keep_alive()
 twitch_miner = TwitchChannelPointsMiner(
     username=os.environ.get('username'),
     password=os.environ.get('password'),           # If no password will be provided, the script will ask interactively
-    claim_drops_startup=False,                  # If you want to auto claim all drops from Twitch inventory on the startup
+    claim_drops_startup=True,                  # If you want to auto claim all drops from Twitch inventory on the startup
     priority=[                                  # Custom priority in this case for example:
         Priority.STREAK,                        # - We want first of all to catch all watch streak from all streamers
         Priority.DROPS,                         # - When we don't have anymore watch streak to catch, wait until all drops are collected over the streamers
@@ -108,9 +108,9 @@ twitch_miner = TwitchChannelPointsMiner(
 
 twitch_miner.mine(
     [
+       Streamer("apathy", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )), 
        Streamer("eliasn97", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
        Streamer("trymacs", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
-       Streamer("apathy", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )), 
        Streamer("oilrats", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
        Streamer("papaplatte", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
        Streamer("syrix", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) ))
