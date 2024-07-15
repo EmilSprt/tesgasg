@@ -79,7 +79,7 @@ twitch_miner = TwitchChannelPointsMiner(
         watch_streak=True,                      # If a streamer go online change the priority of streamers array and catch the watch screak. Issue #11
         chat=ChatPresence.ONLINE,               # Join irc chat to increase watch-time [ALWAYS, NEVER, ONLINE, OFFLINE]
         bet=BetSettings(
-            strategy=Strategy.SMART,            # Choose you strategy!
+            strategy=Strategy.MOST_VOTED,            # Choose you strategy!
             percentage=5,                       # Place the x% of your channel points
             percentage_gap=20,                  # Gap difference between outcomesA and outcomesB (for SMART strategy)
             max_points=50000,                   # If the x percentage of your channel points is gt bet_max_points set this value
@@ -108,12 +108,12 @@ twitch_miner = TwitchChannelPointsMiner(
 
 twitch_miner.mine(
     [
-       Streamer("eliasn97", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.SMART, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
-       Streamer("trymacs", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.SMART, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
-       Streamer("apathy", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.SMART, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )), 
+       Streamer("eliasn97", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
+       Streamer("trymacs", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
+       Streamer("apathy", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )), 
        Streamer("oilrats", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
-       Streamer("papaplatte", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.SMART, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
-       Streamer("syrix", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.SMART, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) ))
+       Streamer("papaplatte", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) )),
+       Streamer("syrix", settings=StreamerSettings(make_predictions=True  , follow_raid=True , claim_drops=True  , watch_streak=True , bet=BetSettings(strategy=Strategy.MOST_VOTED, percentage=5 , stealth_mode=True,  percentage_gap=20 , max_points=1000   , filter_condition=FilterCondition(by=OutcomeKeys.TOTAL_USERS, where=Condition.LTE, value=800 ) ) ))
    ],                                  # Array of streamers (order = priority)
     followers=False,                    # Automatic download the list of your followers
     followers_order=FollowersOrder.ASC  # Sort the followers list by follow date. ASC or DESC
